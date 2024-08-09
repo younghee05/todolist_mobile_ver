@@ -3,6 +3,8 @@ import ReactSelect from "react-select";
 import * as s from "./style";
 import { useEffect, useState } from "react";
 import { addTodoApi } from "../../apis/todoApis/addTodoApi";
+import { useSetRecoilState } from "recoil";
+import { refreshTodolistAtom } from "../../atoms/todolistAtoms";
 
 function RegisterTodo({ closeModal }) {
 
@@ -16,6 +18,8 @@ function RegisterTodo({ closeModal }) {
         { label: "🌈 급하지않음", value: 2, },
     ]
 
+    const setRefresh = useSetRecoilState(refreshTodolistAtom);
+
     // 추가 되는 todo 정보
     const [ todo, setTodo ] = useState({
         title: "",
@@ -27,7 +31,7 @@ function RegisterTodo({ closeModal }) {
 
     // 날짜 초기설정
     useEffect(() => {
-        const parse = (value) => (value + 1 < 10 ? "0" : "") + value;
+        const parse = (value) => (value < 10 ? "0" : "") + value;
 
         const now = new Date();
         const year = now.getFullYear();
@@ -67,6 +71,7 @@ function RegisterTodo({ closeModal }) {
     const handleSubmitClick = () => {
         console.log(todo);
         addTodoApi(todo);
+
         closeModal();
     }
 
@@ -74,7 +79,8 @@ function RegisterTodo({ closeModal }) {
         <div css={s.layout}>
             <header>
                 <button onClick={closeModal}>취소</button>
-                <h2>새로운 할 일</h2>
+                <h2>📝 
+                    새로운 할 일</h2>
                 <button onClick={handleSubmitClick} disabled={!todo.title.trim() || !todo.content.trim()}>추가</button> 
             </header>
             <main>

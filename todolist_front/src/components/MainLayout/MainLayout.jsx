@@ -3,7 +3,6 @@ import { IoCellularSharp } from "react-icons/io5";
 import { IoIosWifi, IoIosBatteryFull  } from "react-icons/io";
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
-import MainContainer from '../MainContainer/MainContainer';
 
 //                 (    props   )
 function MainLayout({ children }) {
@@ -31,10 +30,8 @@ function MainLayout({ children }) {
                     <div css={s.topBarCenter}></div>
                     <div css={s.rightItems}><IoCellularSharp /><IoIosWifi />< IoIosBatteryFull /></div>
                 </div>
-                <MainContainer>
-                    {/* children을 props의 비구조 할당으로 가지고 오는 것 */}
-                    {children}
-                </MainContainer>
+                {/* children을 props의 비구조 할당으로 가지고 오는 것 */}
+                {children}
             </div>
         </div>
     );
