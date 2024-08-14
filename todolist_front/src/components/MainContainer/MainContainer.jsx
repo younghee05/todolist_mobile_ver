@@ -16,7 +16,7 @@ function MainContainer({ children }) {
     return (
         <div css={s.container} ref={containerRef}>
             {modalElement}
-            {children}
+             {children}
         </div>
     );
 }

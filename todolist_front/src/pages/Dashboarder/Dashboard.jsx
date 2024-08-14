@@ -12,7 +12,7 @@ import { refreshTodolistAtom, todolistAtom } from "../../atoms/todolistAtoms";
 import { getTodoAllApi, getTodoCountsApi } from "../../apis/todoApis/getTodoApi";
 import { useEffect } from "react";
 
-
+// components 기준으로 보면 Dashboard가 부모이다 
 function Dashboard(props) {
     const setTodolistAll = useSetRecoilState(todolistAtom);
     const [ refresh, setRefresh ] = useRecoilState(refreshTodolistAtom);
@@ -35,6 +35,7 @@ function Dashboard(props) {
     }, [refresh]);
 
     return (
+        // Dashboard가 랜더링 될때 MainContainer의 자식요소들이 랜더링이 된다 
         <MainContainer>
             <div css={s.layout}>
                 <header>
@@ -49,7 +50,7 @@ function Dashboard(props) {
                 </footer>
             </div>
             <Routes>
-                <Route path="/all" element={<TodoAll />} />    
+                <Route path="/all" element={<TodoAll />} />
             </Routes>
         </MainContainer>
     );

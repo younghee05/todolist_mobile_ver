@@ -5,14 +5,13 @@ import { Global } from "@emotion/react";
 import { reset } from "./styles/common";
 import DandP from "./pages/DandP/DandP";
 import MainLayout from "./components/MainLayout/MainLayout";
-import TodoAll from "./pages/TodoAll/TodoAll";
 
 function App() {
+    
     return (
         <>
             <Global styles={reset} />
             <MainLayout>
-                {/* BrowerRouter 안에 쓰는 거 */}
                 <Routes>
                     <Route path="/todo/*" element={<Dashboard />} />
                     <Route path="/login" element={<></>} />
