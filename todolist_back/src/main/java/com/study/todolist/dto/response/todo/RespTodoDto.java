@@ -1,5 +1,6 @@
 package com.study.todolist.dto.response.todo;
 
+import com.study.todolist.entity.Todo;
 import lombok.Builder;
 import lombok.Data;
 

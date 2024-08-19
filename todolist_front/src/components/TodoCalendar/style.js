@@ -22,7 +22,7 @@ export const monthTitle = css`
     box-sizing: border-box;
     border-bottom: 1px solid #bbbbbb;
     padding: 5px 10px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #999999;
     cursor: default;
@@ -31,8 +31,8 @@ export const monthTitle = css`
 export const dateTitle = css`
     box-sizing: border-box;
     padding: 5px 10px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 500;
     color: #999999;
     cursor: default;
 `;
@@ -58,16 +58,30 @@ export const todoTitleAndTime = css`
     display: flex;
     justify-content: space-between;
     & > h2 {
+        flex-grow: 1;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         margin-right: 5px;
     }
 
-`;
+    & > input {
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        outline: none;
+        border: none;
+        padding: 0px 3px;
+        width: 100%;
+        background-color: #f5f5f5;
+        overflow-y: auto;
+        resize: none;
+        color: #777777;
 
-export const todoSubBox = css`
-    display: flex;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
 `;
 
 export const todoCheckBox = css`
@@ -98,5 +112,41 @@ export const todoCheckBox = css`
         width: 14px;
         height: 14px;
         background-color: #7a7a7a;
+    }
+`;
+
+export const todoSubBox = css`
+    display: flex;
+    flex-direction: column;
+    padding-left: 28px;
+`;
+
+export const contentBox = css`
+    & > h3 {
+        cursor: default;
+    }
+    
+    & > textarea {
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        outline: none;
+        border: none;
+        padding: 0px 3px;
+        width: 100%;
+        height: 60px;
+        background-color: #f5f5f5;
+        overflow-y: auto;
+        resize: none;
+        color: #777777;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    & > input {
+        box-sizing: border-box;
+        width: 100%;
+        cursor: pointer;
     }
 `;

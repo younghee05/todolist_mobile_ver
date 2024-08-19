@@ -19,6 +19,31 @@
             now()
         )
     </insert>
+    <update id="changeStatus">
+        update
+            todo_tb
+        set
+<!--            만약에 status가 1이면 2로 아니면 1 (check)-->
+            status = if(status = 1, 2, 1)
+        where
+            todoId = #{todoId}
+
+    </update>
+
+    <update id="modifyTodoByTodoId">
+        update
+            todo_tb
+        set
+            title = #{title},
+            content = #{content},
+            todoDateTime = now(),
+            important = #{important},
+            busy = #{busy},
+            status = #{status}
+        where
+            todoId = #{todoId}
+    </update>
+
     <select id="findAll" resultType="com.study.todolist.entity.Todo">
         select
             todoId,

@@ -1,5 +1,6 @@
 package com.study.todolist.repository;
 
+import com.study.todolist.dto.request.todo.ReqModifyTodoDto;
 import com.study.todolist.entity.Todo;
 import com.study.todolist.entity.TodoCounts;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,6 +14,10 @@ public interface TodoMapper {
     List<Todo> findAll();
 
     TodoCounts getTodoCounts();
+
+    int changeStatus(int todoId);
+
+    int modifyTodoByTodoId(Todo todo);
 
 
 }

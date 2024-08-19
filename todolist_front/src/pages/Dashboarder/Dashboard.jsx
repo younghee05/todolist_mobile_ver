@@ -15,6 +15,7 @@ import { useEffect } from "react";
 // components 기준으로 보면 Dashboard가 부모이다 
 function Dashboard(props) {
     const setTodolistAll = useSetRecoilState(todolistAtom);
+    // refresh 상태
     const [ refresh, setRefresh ] = useRecoilState(refreshTodolistAtom);
 
     const requestTodolist = async () => {
