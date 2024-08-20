@@ -6,20 +6,19 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import BackButtonTop from '../../components/BackButtonTop/BackButtonTop';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { MENUS } from '../../constants/menus';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { refreshTodolistAtom, todolistAtom } from '../../atoms/todolistAtoms';
+import { useRecoilState } from 'recoil';
+import { todolistAtom } from '../../atoms/todolistAtoms';
 import TodoCalendar from '../../components/TodoCalendar/TodoCalendar';
+import ConfirmButtonTop from '../../components/ConfirmButtonTop/ConfirmButtonTop';
 import RegisterTodoButton from '../../components/RegisterTodoButton/RegisterTodoButton';
 import { modifyTodoAtom, selectedCalendarTodoAtom } from "../../atoms/calendarAtoms";
 import SubPageContainer from "../../components/SubPageContainer/SubPageContainer";
-import ConfirmButtonTop from "../../components/ConfirmButtonTop/ConfirmButtonTop";
 
-function TodoAll(props) {
+function TodoComplete(props) {
     // useRecoil
     const [ todolistAll ] = useRecoilState(todolistAtom);
     const [ selectedTodo, setSelectedTodo ] = useRecoilState(selectedCalendarTodoAtom);
     const [ modifyTodo, setModifyTodo ] = useRecoilState(modifyTodoAtom);
-    const setRefresh = useSetRecoilState(refreshTodolistAtom);
 
     // useState
     const [ calendarData, setCalendarData ] = useState({});
@@ -47,6 +46,10 @@ function TodoAll(props) {
         const tempCalendarData = {};
 
         for(let todo of todolistAll.todolist) {
+            if(todo.status !==2) {
+                continue;
+            }
+
             const dateTime = todo.todoDateTime;
             const year = dateTime.slice(0, 4); // 년도
             const month = dateTime.slice(5, 7); // 월
@@ -75,7 +78,7 @@ function TodoAll(props) {
     }
 
     const modifySubmit = () => {
-        setRefresh(true);
+
         setSelectedTodo(0);
     }
 
@@ -99,4 +102,4 @@ function TodoAll(props) {
         </PageAnimationLayout>
     );
 }
-export default TodoAll;
+export default TodoComplete;

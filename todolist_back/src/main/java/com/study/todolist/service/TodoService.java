@@ -48,4 +48,8 @@ public class TodoService {
 
         return todoMapper.modifyTodoByTodoId(dto.toEntity());
     }
+
+    public int deleteTodo(int todoId) {
+        return todoMapper.deleteByTodoId(todoId);
+    }
 }

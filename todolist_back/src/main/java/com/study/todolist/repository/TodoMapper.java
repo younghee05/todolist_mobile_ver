@@ -19,5 +19,7 @@ public interface TodoMapper {
 
     int modifyTodoByTodoId(Todo todo);
 
+    int deleteByTodoId(int todoId);
+
 
 }

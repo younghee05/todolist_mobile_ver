@@ -118,7 +118,7 @@ export const todoCheckBox = css`
 export const todoSubBox = css`
     display: flex;
     flex-direction: column;
-    padding-left: 28px;
+    padding: 0px 28px;
 `;
 
 export const contentBox = css`
@@ -149,4 +149,8 @@ export const contentBox = css`
         width: 100%;
         cursor: pointer;
     }
+`;
+
+export const deletButton = css`
+    padding-right: 28px;
 `;

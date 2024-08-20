@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 
-function confirmButtonTop({ onSubmit, onCancel, disabled }) {
+function ConfirmButtonTop({ onSubmit, onCancel, disabled }) {
     
     const handelCancelClick = () => {
         onCancel();
@@ -20,4 +20,4 @@ function confirmButtonTop({ onSubmit, onCancel, disabled }) {
     );
 }
 
-export default confirmButtonTop;
+export default ConfirmButtonTop;

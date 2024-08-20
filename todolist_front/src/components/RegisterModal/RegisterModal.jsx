@@ -27,6 +27,7 @@ function RegisterModal({ containerRef }) {
                 overlay: {  
                     position: "absolute",
                     backgroundColor: "transparent",
+                    zIndex: "50",
                 },
 
                 content: {
